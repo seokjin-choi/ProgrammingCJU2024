@@ -10,7 +10,7 @@ int main(void)
 	scanf_s("%lf", &cir_radius);      //원 반지름 입력
 
 	double cir_extent = cir_pi * cir_radius*cir_radius;     //원 넓이 공식 선언
-	printf("sq_extent:%.1lf", cir_extent);
+	printf("cir_extent:%.1lfm^2", cir_extent);
 	
 	
 	return 0;
