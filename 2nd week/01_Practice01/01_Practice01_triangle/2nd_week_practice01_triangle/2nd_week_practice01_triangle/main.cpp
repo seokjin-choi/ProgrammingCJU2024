@@ -11,6 +11,6 @@ int main(void)
 
 	double tri_extent = tri_base_length * tri_height/2 ;
 
-	printf("tri_extent: %.1lf ",tri_extent);
+	printf("tri_extent: %.1lfm^2 ",tri_extent);
 	return 0;
 }
