@@ -13,7 +13,7 @@ int main(void)
 	double ft_meter = meter * 3.28;                       //ft을 미터로
 	double inch_meter = meter * 39.37;                    //inch를 미터로
 	double kg_slug = slug / 14.9;                         //kg을 slug로
-	printf("meter_ft:%.1lf, meter_inch:%.1lf, slug_kg:%.1lf, ft_meter:%.1lf, inch_meter:%.2lf, kg_slug:%.2lf", meter_ft, meter_inch,slug_kg,ft_meter,inch_meter,kg_slug);
+	printf("meter_ft:%.1lfft, meter_inch:%.1lfinch, slug_kg:%.1lfkg, ft_meter:%.1lfm, inch_meter:%.2lfm, kg_slug:%.2lfslug", meter_ft, meter_inch,slug_kg,ft_meter,inch_meter,kg_slug);
 	
 	return 0;
 }
