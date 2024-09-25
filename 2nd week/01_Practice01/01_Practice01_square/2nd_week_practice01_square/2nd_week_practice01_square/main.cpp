@@ -9,7 +9,7 @@ int main(void)
 	scanf_s("%lf%lf", &sq_base_length, &sq_height);  //사각형 밑변,높이 입력
 
 	double sq_extent=sq_base_length * sq_height;     //사각형 넓이 공식 선언
-	printf("sq_extent:%.1lf", sq_extent);            //사각형 넓이
+	printf("sq_extent:%.1lfm^2", sq_extent);            //사각형 넓이
 	return 0;
 	
 }
