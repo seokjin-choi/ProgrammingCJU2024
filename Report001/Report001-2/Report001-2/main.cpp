@@ -11,7 +11,7 @@ int main(void)
 	printf("The price of the item is %dwon\nPlease enter the amount:", price);  //물건 가격 확인 후 금액 투입 메세지 출력
 	scanf_s("%d", &input_price);   //투입 금액 입력
 
-	change = price-input_price;    //거스름돈 공식 선언
+	change = input_price-price;    //거스름돈 공식 선언
 	c_1000 = change / 1000;        //1000원 주는 갯수 공식 선언
 	c_500 = (change - (c_1000 * 1000)) / 500;   //500원 주는 갯수 공식 선언
 	c_100 = (change - (c_1000 * 1000) - (c_500 * 500)) / 100;   //100원 주는 갯수 공식 선어

@@ -11,6 +11,6 @@ int main(void)
 	trans_angle_pitch = -((int)angle_pitch + 90) % 360 + 180;  //pitch 변환 공식
 	trans_angle_yaw = -((int)angle_yaw + 90) % 360 + 180;   //yaw 변환 공식
 	trans_angle_roll = -((int)angle_roll + 90) % 360 + 180;   //roll 변환 공식
-	printf("translated angle pitch:%.2lfdeg yaw:%.2lfdeg roll:%.2lfdeg", trans_angle_pitch,trans_angle_yaw,trans_angle_roll);  //변환된 pitch, yaw, roll값들 출력
+	printf("translated angle pitch:%.2lfdeg  yaw:%.2lfdeg  roll:%.2lfdeg", trans_angle_pitch,trans_angle_yaw,trans_angle_roll);  //변환된 pitch, yaw, roll값들 출력
 	return 0;
 }
