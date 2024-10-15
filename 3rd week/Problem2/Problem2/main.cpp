@@ -40,6 +40,7 @@ int main(void)
 	default:      //전부 해당 안될 때 계산불가 출력
 	{
 		printf("계산할 수 없습니다.");
+		break;
 	}
 
 	}
