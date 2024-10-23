@@ -13,19 +13,15 @@ int main(void)
 	switch (grade_unit)
 	{
 	case 10:                            //100점일때 학점 A
-		printf("Your grade is A");
 	case 9:                            //90점대일때 학점 A
-		printf("Your grade is A");
 	case 8:                            //80점대일때 학점 A
 		printf("Your grade is A");
 		break;
 	case 7:                            //70점대일때 학점 B
-		printf("Your grade is B");
 	case 6:                            //60점대점일때 학점 B
 		printf("Your grade is B");
 		break;
 	case 5:                            //50점대일때 학점 C
-		printf("Your grade is C");
 	case 4:                            //40점대일때 학점 C
 		printf("Your grade is C");
 		break;
