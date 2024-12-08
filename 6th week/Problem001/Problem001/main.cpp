@@ -2,70 +2,86 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define UNUSED -1 // 사용하지 않는 배열 공간을 나타내는 값
+#define INTEGER 0
+#define REAL_NUMBER 1
+#define ASCENDING 2
+#define DESCENDING 3
 
-// 랜덤 정수 배열 생성 함수
-void GenerateArrangement(int* parr) {
+// 배열 생성 함수
+void GenerateArrangement(double* parr, int datatype) {
     srand((unsigned int)time(NULL)); // 랜덤 시드 초기화
 
     for (int i = 0; i < 10; i++) {
-        parr[i] = rand() % 101; // 0 ~ 100 범위의 랜덤 값 생성
+        if (datatype == INTEGER) {
+            parr[i] = (double)(rand() % 201 - 100); // 정수 생성 (-100 ~ +100)
+        }
+        else if (datatype == REAL_NUMBER) {
+            parr[i] = (rand() % 201 - 100) + ((double)rand() / RAND_MAX); // 실수 생성
+        }
     }
 }
 
-// 짝수와 홀수 배열 분리 함수
-void CalcEvenOddArray(int* input, int* even, int* odd) {
-    // 짝수와 홀수 배열 초기화
-    for (int i = 0; i < 10; i++) {
-        even[i] = UNUSED;
-        odd[i] = UNUSED;
-    }
+// 정렬 함수
+void CalcSortArray(double* parr, int modeselect) {
+    double temp;
 
-    int evenIndex = 0, oddIndex = 0;
-
-    // 입력 배열을 순회하며 짝수와 홀수를 각각 분리
-    for (int i = 0; i < 10; i++) {
-        if (input[i] % 2 == 0) {
-            even[evenIndex++] = input[i]; // 짝수 저장
+    if (modeselect == ASCENDING) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = i + 1; j < 10; j++) {
+                if (parr[i] > parr[j]) {
+                    temp = parr[i];
+                    parr[i] = parr[j];
+                    parr[j] = temp;
+                }
+            }
         }
-        else {
-            odd[oddIndex++] = input[i];  // 홀수 저장
+    }
+    else if (modeselect == DESCENDING) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = i + 1; j < 10; j++) {
+                if (parr[i] < parr[j]) {
+                    temp = parr[i];
+                    parr[i] = parr[j];
+                    parr[j] = temp;
+                }
+            }
         }
     }
 }
 
 // 배열 출력 함수
-void PrintArray(const char* message, int* parr) {
-    printf("%s\n", message);
-
+void PrintArray(double* parr) {
     for (int i = 0; i < 10; i++) {
-        if (parr[i] == UNUSED) {
-            printf("UNUSED\t"); // 사용하지 않는 공간 출력
-        }
-        else {
-            printf("%d\t", parr[i]);
-        }
+        printf("%.2f\t", parr[i]); // 소수점 둘째 자리까지 출력
     }
     printf("\n");
 }
 
 int main(void) {
-    int input[10];  // 입력 배열
-    int even[10];   // 짝수 배열
-    int odd[10];    // 홀수 배열
+    int datatype, modeselect;
+    double arr[10]; // double 배열 선언
 
-    // 랜덤 정수 배열 생성
-    GenerateArrangement(input);
+    // 데이터 타입 선택
+    printf("Choose a data type (integer=0, real number=1): ");
+    scanf_s("%d", &datatype);
+
+    // 배열 생성
+    GenerateArrangement(arr, datatype);
 
     // 랜덤 배열 출력
-    PrintArray("Random array:", input);
+    printf("Random array:\n");
+    PrintArray(arr);
 
-    // 짝수와 홀수 배열 분리
-    CalcEvenOddArray(input, even, odd);
+    // 정렬 모드 선택
+    printf("Choose the sort mode (ascending=2, descending=3): ");
+    scanf_s("%d", &modeselect);
 
-    // 결과 출력
-    PrintArray("Even numbers array:", even);
-    PrintArray("Odd numbers array:", odd);
+    // 정렬 수행
+    CalcSortArray(arr, modeselect);
+
+    // 정렬된 배열 출력
+    printf("Sorted array:\n");
+    PrintArray(arr);
 
     return 0;
 }
